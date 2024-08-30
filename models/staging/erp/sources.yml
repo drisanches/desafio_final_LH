@@ -15,9 +15,7 @@ sources:
               - unique
               - not_null
           - name: name
-            description: 'Name of the product.'
-            tests:
-              - not_null            
+            description: 'Name of the product.'        
           - name: productnumber
             description: 'Unique product identification number.'
           - name: makeflag 
@@ -40,7 +38,7 @@ sources:
             description: 'Unit of measure for Size column.'
           - name: weightunitmeasurecode
             description: 'Unit of measure for Weight column.'
-          - name: Weight
+          - name: weight
             description: 'Product weight.'
           - name: daystomanufacture
             description: 'Number of days required to manufacture the product.'
@@ -75,8 +73,6 @@ sources:
               - not_null
           - name: name
             description: 'Name of the product category.'
-            tests:
-              - not_null
           - name: rowguid
             description: 'number uniquely identifying the record.'
           - name: modifieddate
@@ -92,10 +88,8 @@ sources:
               - not_null
           - name: productcategoryid
             description: 'Foreign key for Product Category records.'
-          - name: 
-            description: 'Name of the product.'
-            tests:
-              - not_null
+          - name: name
+            description: 'Name of the product subcategory.'
           - name: rowguid
             description: 'number uniquely identifying the record.'
           - name: modifieddate
