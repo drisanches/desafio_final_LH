@@ -1,0 +1,102 @@
+version: 2
+
+sources:
+  - name: erp
+    description: 'Adventure Works ERP system source (SAP).'
+    database: fea24_6
+    schema: raw_adventure_works
+    tables:
+      - name: product
+        description: 'Table of products sold or used in the manfacturing of sold products.'
+        columns:
+          - name: productid
+            description: 'Primary key for Product records.'
+            tests:
+              - unique
+              - not_null
+          - name: name
+            description: 'Name of the product.'
+            tests:
+              - not_null            
+          - name: productnumber
+            description: 'Unique product identification number.'
+          - name: makeflag 
+            description: 'Flag to indicate if the product is purchased (0) or manufactured in-house (1).'
+          - name: finishedgoodsflag
+            description: 'Flag to indicate if the product is salable (1) or not (0).'
+          - name: color
+            description: 'Product color.'
+          - name: safetystocklevel
+            description: 'Minimum inventory quantity.'
+          - name: reorderpoint
+            description: 'Inventory level that triggers a purchase order or work order.'
+          - name: standardcost
+            description: 'Standard cost of the product.'
+          - name: listprice
+            description: 'Selling price.'
+          - name: Size
+            description: 'Product size.'
+          - name: sizeunitmeasurecode
+            description: 'Unit of measure for Size column.'
+          - name: weightunitmeasurecode
+            description: 'Unit of measure for Weight column.'
+          - name: Weight
+            description: 'Product weight.'
+          - name: daystomanufacture
+            description: 'Number of days required to manufacture the product.'
+          - name: productline 
+            description: 'Indicates whether the product line is Road (R), Mountain (M), Touring (T), or Standard (S).'
+          - name: class
+            description: 'Indicates whether the product class is High (H), Medium (M), or Low  (L).'
+          - name: style
+            description: 'Indicates whether the product style is Womens (W), Mens (M), or Universal (U).'
+          - name: productsubcategoryid
+            description: 'Foreign key to product subcategory.'
+          - name: productmodelid
+            description: 'Foreign Key to the product model.'
+          - name: sellstartdate
+            description: 'Date the product was available for sale.'
+          - name: sellenddate
+            description: 'Date the product was no longer available for sale.'
+          - name: discontinueddate
+            description: 'Date the product was discontinued.'
+          - name: rowguid
+            description: 'number uniquely identifying the record.'
+          - name: modifieddate
+            description: 'Date and time the record was last updated.'
+
+      - name: productcategory
+        description: 'Table with records of product categories.'
+        columns:
+          - name: productcategoryid
+            description: 'Primary key for Product Category records.'
+            tests:
+              - unique
+              - not_null
+          - name: name
+            description: 'Name of the product category.'
+            tests:
+              - not_null
+          - name: rowguid
+            description: 'number uniquely identifying the record.'
+          - name: modifieddate
+            description: 'Date and time the record was last updated.'
+      
+      - name: productsubcategory
+        description: 'Table with records of product subcategories.'
+        columns:
+          - name: productsubcategoryid
+            description: 'Primary key for Product Subcategory records.'
+            tests:
+              - unique
+              - not_null
+          - name: productcategoryid
+            description: 'Foreign key for Product Category records.'
+          - name: 
+            description: 'Name of the product.'
+            tests:
+              - not_null
+          - name: rowguid
+            description: 'number uniquely identifying the record.'
+          - name: modifieddate
+            description: 'Date and time the record was last updated.'
