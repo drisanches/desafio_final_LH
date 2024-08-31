@@ -1,0 +1,26 @@
+version: 2
+
+models:
+  - name: dim_products
+    description: 'Products dimension of Adventure Works.'
+    columns:
+      - name: pk_product
+        description: 'Primary key for Product records.'
+        tests:
+          - unique
+          - not_null
+  
+      - name: product_name
+        description: ''
+        tests:
+          - not_null
+
+      - name: category_name
+      - name: subcategory_name
+      - name: is_purchased
+      - name: product_cost
+      - name: list_price
+      - name: days_to_manufacture
+      - name: product_line
+      - name: product_class
+      - name: product_style
