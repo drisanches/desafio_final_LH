@@ -20,7 +20,7 @@ with
             , products.product_name
             , categories.category_name
             , subcategories.subcategory_name
-            , products.is_purchased
+            , products.is_manufactured
             , products.product_cost
             , products.list_price
             , products.days_to_manufacture
@@ -34,6 +34,7 @@ with
             on categories.pk_product_category = subcategories.fk_product_category
         where products.is_salable = true
     )
+
 
 select *
 from joined

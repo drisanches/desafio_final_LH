@@ -21,8 +21,8 @@ models:
       - name: subcategory_name
         description: 'Name of the product subcategory.'
 
-      - name: is_purchased
-        description: 'Flag to indicate if the product is purchased (0) or manufactured in-house (1).'
+      - name: is_manufactured
+        description: 'Flag to indicate if the product is purchased (false) or manufactured in-house (true).'
         tests:
           - not_null
 
