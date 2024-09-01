@@ -35,6 +35,5 @@ with
         where products.is_salable = true
     )
 
-
 select *
 from joined

@@ -6,8 +6,8 @@ with
             , cast(name as varchar) as product_name
             , cast(makeflag as boolean) as is_manufactured
             , cast(finishedgoodsflag as boolean) as is_salable
-            , cast(standardcost as float) as product_cost
-            , cast(listprice as float) as list_price
+            , cast(standardcost as numeric(18,2)) as product_cost
+            , cast(listprice as numeric(18,2)) as list_price
             , cast(daystomanufacture as int) as days_to_manufacture
             , cast(case
                 when trim(productline) = 'R' then 'Road'
