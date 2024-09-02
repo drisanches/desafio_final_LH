@@ -20,13 +20,13 @@ with
             , products.product_name
             , categories.category_name
             , subcategories.subcategory_name
-            , products.is_manufactured
-            , products.product_cost
-            , products.list_price
-            , products.days_to_manufacture
             , products.product_line
             , products.product_class
             , products.product_style
+            , products.product_cost
+            , products.list_price
+            , products.days_to_manufacture
+            , products.is_manufactured
         from stg_products as products
         left join stg_product_subcategories as subcategories
             on products.fk_product_subcategory = subcategories.pk_product_subcategory
