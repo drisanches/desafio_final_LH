@@ -4,11 +4,6 @@ with
             cast(productid as int) as pk_product
             , cast(productsubcategoryid as int) as fk_product_subcategory
             , cast(name as varchar) as product_name
-            , cast(makeflag as boolean) as is_manufactured
-            , cast(finishedgoodsflag as boolean) as is_salable
-            , cast(standardcost as numeric(18,2)) as product_cost
-            , cast(listprice as numeric(18,2)) as list_price
-            , cast(daystomanufacture as int) as days_to_manufacture
             , cast(case
                 when trim(productline) = 'R' then 'Road'
                 when trim(productline) = 'M' then 'Mountain'
@@ -28,6 +23,11 @@ with
                 when trim(style) = 'U' then 'Universal'
                 else null
             end as varchar) as product_style
+            , cast(standardcost as numeric(18,2)) as product_cost
+            , cast(listprice as numeric(18,2)) as list_price
+            , cast(daystomanufacture as int) as days_to_manufacture
+            , cast(makeflag as boolean) as is_manufactured
+            , cast(finishedgoodsflag as boolean) as is_salable
             --, color
             --, productmodelid
             --, productnumber
