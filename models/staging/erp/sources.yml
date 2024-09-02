@@ -6,6 +6,27 @@ sources:
     database: fea24_6
     schema: raw_adventure_works
     tables:
+      - name: customer
+        description: 'Table with customer information.'
+        columns:
+          - name: customerid
+            description: 'Primary key for Customer records.'
+            tests:
+              - unique
+              - not_null
+          - name: personid
+            description: 'Foreign key for Person records.'
+          - name: storeid
+            description: 'Foreign key for Store records.'
+          - name: territoryid
+            description: 'Foreign key to the territory in which the customer is located.'
+          - name: accountnumber
+            description: 'Unique number identifying the customer assigned by the accounting system.'
+          - name: rowguid
+            description: 'number uniquely identifying the record.'
+          - name: modifieddate
+            description: 'Date and time the record was last updated.'
+    
       - name: product
         description: 'Table of products sold or used in the manfacturing of sold products.'
         columns:
