@@ -26,6 +26,50 @@ sources:
             description: 'number uniquely identifying the record.'
           - name: modifieddate
             description: 'Date and time the record was last updated.'
+
+      - name: person
+        description: >
+          Table of persons involved with AdventureWorks:
+          employees, customer contacts, and vendor contacts.
+        columns:
+          - name: businessentityid
+            description: 'Primary key for Person records.'
+            tests:
+              - unique
+              - not_null
+          - name: persontype
+            description: >
+              Primary type of person. Indicates whether the person is:
+              Store contact (SC), Individual [retail] customer (IN), Sales person (SP),
+              Employee [non-sales] (EM), Vendor contact (VC) or General contact (GC).
+          - name: namestyle
+            description: >
+              Flag to indicate if the data in firstname and lastname are stored 
+              in western style order (0) [firstname, last name] or the opposite (1).
+          - name: title
+            description: 'A courtesy title attributed to the person.'
+          - name: firstname
+            description: 'First name of the person.'
+          - name: middlename
+            description: 'Middle name of the person.'
+          - name: lastname
+            description: 'Last name of the person.'
+          - name: suffix
+            description: 'Surname suffix.'
+          - name: emailpromotion
+            description: |
+              Flag that indicates if: 
+              0 = Contact does not wish to receive e-mail promotions,
+              1 = Contact does wish to receive e-mail promotions from AdventureWorks,
+              2 = Contact does wish to receive e-mail promotions from AdventureWorks and selected partners.
+          - name: additionalcontactinfo 
+            description: 'Additional contact information about the person stored in xml format.'
+          - name: demographics
+            description: 'Personal information such as hobbies, and income collected from online shoppers.'
+          - name: rowguid
+            description: 'number uniquely identifying the record.'
+          - name: modifieddate
+            description: 'Date and time the record was last updated.'
     
       - name: product
         description: 'Table of products sold or used in the manfacturing of sold products.'
