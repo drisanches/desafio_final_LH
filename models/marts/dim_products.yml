@@ -1,0 +1,45 @@
+version: 2
+
+models:
+  - name: dim_products
+    description: 'Adventure Works products dimension.'
+    columns:
+      - name: pk_product
+        description: 'Primary key for Product records.'
+        tests:
+          - unique
+          - not_null
+  
+      - name: product_name
+        description: 'Name of the product.'
+        tests:
+          - not_null
+
+      - name: category_name
+        description: 'Name of the product category.'
+
+      - name: subcategory_name
+        description: 'Name of the product subcategory.'
+
+      - name: is_manufactured
+        description: 'Flag to indicate if the product is purchased (false) or manufactured in-house (true).'
+        tests:
+          - not_null
+
+      - name: product_cost
+        description: 'Standard cost of the product.'
+
+      - name: list_price
+        description: 'Selling price.'
+
+      - name: days_to_manufacture
+        description: 'Number of days required to manufacture the product.'
+
+      - name: product_line
+        description: 'Indicates whether the product line is Road, Mountain, Touring, or Standard.'
+
+      - name: product_class
+        description: 'Indicates whether the product class is High, Medium, or Low.'
+
+      - name: product_style
+        description: 'Indicates whether the product style is Womens, Mens, or Universal.'
