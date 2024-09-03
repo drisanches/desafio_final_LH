@@ -1,0 +1,31 @@
+version: 2
+
+models:
+  - name: dim_addresses
+    description: 'Adventure Works addresses dimension.'
+    columns:
+      - name: pk_address
+        description: 'Primary key for address records.'
+        tests:
+          - unique
+          - not_null
+  
+      - name: city_name
+        description: 'Name of the city.'
+        tests:
+          - not_null
+
+      - name: state_province_code
+        description: 'ISO standard state or province code.'
+        tests:
+          - not_null
+
+      - name: state_province_name
+        description: 'State or province name.'
+        tests:
+          - not_null
+
+      - name: country_region_name
+        description: 'Country or region name.'
+        tests:
+          - not_null

@@ -6,6 +6,38 @@ sources:
     database: fea24_6
     schema: raw_adventure_works
     tables:
+      - name: address
+        description: 'Street address information for customers, employees, and vendors.'
+        columns:
+          - name: addressid
+            description: 'Primary key for Address records.'
+          - name: stateprovinceid
+            description: 'Foreign Key to unique identification number for the state or province.'
+          - name: addressline1
+            description: 'First street address line.'
+          - name: addressline2
+            description: 'Second street address line.'
+          - name: city
+            description: 'Name of the city.'
+          - name: postalcode
+            description: 'Postal code for the street address.'
+          - name: spatiallocation
+            description: 'Latitude and longitude of this address.'
+          - name: rowguid
+            description: 'number uniquely identifying the record.'
+          - name: modifieddate
+            description: 'Date and time the record was last updated.'
+
+      - name: countryregion
+        description: 'Table containing the ISO standard codes for countries and regions.'
+        columns:
+          - name: CountryRegionCode
+            description: Primary key for Country Region records.'
+          - name: Name
+            description: 'Country or region name.'
+          - name: modifieddate
+            description: 'Date and time the record was last updated.'
+      
       - name: customer
         description: 'Table with customer information.'
         columns:
@@ -140,6 +172,28 @@ sources:
             description: 'Foreign key for Product Category records.'
           - name: name
             description: 'Name of the product subcategory.'
+          - name: rowguid
+            description: 'number uniquely identifying the record.'
+          - name: modifieddate
+            description: 'Date and time the record was last updated.'
+
+      - name: stateprovince
+        description: 'Table with State and province information.'
+        columns:
+          - name: stateprovinceid
+            description: 'Primary key for StateProvince records.'
+          - name: countryregioncode
+            description: 'Foreign key to CountryRegion records.'
+          - name: territoryid 
+            description: 'Foreign key to the territory in which the state or province is located.'
+          - name: stateprovincecode 
+            description: 'ISO standard state or province code.'
+          - name: name
+            description: 'State or province description.'
+          - name: isonlystateprovinceflag
+            description: >
+              Flag to indicate if StateProvinceCode exists (false) or not (true),
+              using CountryRegionCode.
           - name: rowguid
             description: 'number uniquely identifying the record.'
           - name: modifieddate
