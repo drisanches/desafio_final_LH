@@ -27,10 +27,9 @@ with
             , stores.pk_store
             , persons.customer_name
             , stores.store_name
-            , case 
-                when persons.pk_person is null and stores.pk_store is not null then 'Store'
-                when persons.pk_person is not null and stores.pk_store is null then 'Individual'
-                when persons.pk_person is not null and stores.pk_store is not null then 'Store Contact'
+            , case
+                when persons.person_type is not null then persons.person_type
+                when persons.person_type is null then 'Store'
             end as person_type
         from stg_customers as customers
         left join stg_persons as persons
