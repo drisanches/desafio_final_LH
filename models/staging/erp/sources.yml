@@ -11,14 +11,14 @@ sources:
         columns:
           - name: addressid
             description: 'Primary key for Address records.'
+          - name: stateprovinceid
+            description: 'Foreign Key to unique identification number for the state or province.'
           - name: addressline1
             description: 'First street address line.'
           - name: addressline2
             description: 'Second street address line.'
           - name: city
             description: 'Name of the city.'
-          - name: stateprovinceid
-            description: 'Foreign Key to unique identification number for the state or province.'
           - name: postalcode
             description: 'Postal code for the street address.'
           - name: spatiallocation
