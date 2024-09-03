@@ -10,13 +10,13 @@ models:
           - unique
           - not_null
   
-      - name: pk_business_entity
+      - name: pk_person
         description: 'Natural key for Person records.'
         tests:
           - unique
           - not_null
 
-      - name: pk_store_business_entity
+      - name: pk_store
         description: 'Natural key for Store records.'
         tests:
           - unique

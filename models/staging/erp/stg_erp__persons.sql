@@ -1,9 +1,9 @@
 with
     renamed as (
         select
-            cast(businessentityid as int) as pk_business_entity
+            cast(businessentityid as int) as pk_person
             , cast(case
-                when trim(persontype) = 'SC' then 'Store'
+                when trim(persontype) = 'SC' then 'Store Contact'
                 when trim(persontype) = 'IN' then 'Individual'
                 when trim(persontype) = 'SP' then 'Seller'
                 when trim(persontype) = 'EM' then 'Employee'
