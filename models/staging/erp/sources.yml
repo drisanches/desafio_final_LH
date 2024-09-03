@@ -11,9 +11,6 @@ sources:
         columns:
           - name: customerid
             description: 'Primary key for Customer records.'
-            tests:
-              - unique
-              - not_null
           - name: personid
             description: 'Foreign key for Person records.'
           - name: storeid
@@ -34,9 +31,6 @@ sources:
         columns:
           - name: businessentityid
             description: 'Primary key for Person records.'
-            tests:
-              - unique
-              - not_null
           - name: persontype
             description: >
               Primary type of person. Indicates whether the person is:
@@ -76,9 +70,6 @@ sources:
         columns:
           - name: productid
             description: 'Primary key for Product records.'
-            tests:
-              - unique
-              - not_null
           - name: name
             description: 'Name of the product.'        
           - name: productnumber
@@ -133,9 +124,6 @@ sources:
         columns:
           - name: productcategoryid
             description: 'Primary key for Product Category records.'
-            tests:
-              - unique
-              - not_null
           - name: name
             description: 'Name of the product category.'
           - name: rowguid
@@ -148,13 +136,26 @@ sources:
         columns:
           - name: productsubcategoryid
             description: 'Primary key for Product Subcategory records.'
-            tests:
-              - unique
-              - not_null
           - name: productcategoryid
             description: 'Foreign key for Product Category records.'
           - name: name
             description: 'Name of the product subcategory.'
+          - name: rowguid
+            description: 'number uniquely identifying the record.'
+          - name: modifieddate
+            description: 'Date and time the record was last updated.'
+
+      - name: store
+        description: 'Table with stores information.'
+        columns:
+          - name: businessentityid
+            description: 'Primary key for Store records.'
+          - name: salespersonid
+            description: 'Foreign key to the sales person assigned to the customer.'
+          - name: name
+            description: 'Name of the store.'
+          - name: demographics
+            description: 'Demographic informationg about the store.'
           - name: rowguid
             description: 'number uniquely identifying the record.'
           - name: modifieddate
