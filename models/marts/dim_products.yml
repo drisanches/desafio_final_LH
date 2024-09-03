@@ -17,6 +17,8 @@ models:
 
       - name: category_name
         description: 'Name of the product category.'
+        tests:
+          - not_null
 
       - name: subcategory_name
         description: 'Name of the product subcategory.'
