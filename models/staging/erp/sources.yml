@@ -177,6 +177,28 @@ sources:
           - name: modifieddate
             description: 'Date and time the record was last updated.'
 
+      - name: stateprovince
+        description: 'Table with State and province information.'
+        columns:
+          - name: stateprovinceid
+            description: 'Primary key for StateProvince records.'
+          - name: stateprovincecode 
+            description: 'ISO standard state or province code.'
+          - name: countryregioncode
+            description: 'Foreign key to CountryRegion records.'
+          - name: isonlystateprovinceFlag
+            description: >
+              Flag to indicate if StateProvinceCode exists (0) or not (1),
+              using CountryRegionCode.
+          - name: name
+            description: 'State or province description.'
+          - name: territoryid 
+            description: 'ID of the territory in which the state or province is located.'
+          - name: rowguid
+            description: 'number uniquely identifying the record.'
+          - name: modifieddate
+            description: 'Date and time the record was last updated.'
+
       - name: store
         description: 'Table with stores information.'
         columns:
