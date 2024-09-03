@@ -1,11 +1,20 @@
 with
     renamed as (
         select
-            cast(customerid as int) as pk_customer
-            , cast(personid as int) as fk_person
-            , cast(storeid as int) as fk_store
-            , cast(territoryid as int) as fk_territory
-        from {{ source('erp', 'customer') }}
+            cast(businessentityid as int) as pk_business_entity
+            , cast(persontype as varchar) as person_type
+            , cast(namestyle as varchar) as name_style
+            , cast(firstname as varchar) as first_name
+            , cast(middlename as varchar) as middle_name
+            , cast(lastname as varchar) as last_name
+            --, title
+            --, suffix
+            --, emailpromotion
+            --, additionalcontactinfo
+            --, demographics
+            --, rowguid
+            --, modifieddate
+        from {{ source('erp', 'person') }}
     )
 
 select *
