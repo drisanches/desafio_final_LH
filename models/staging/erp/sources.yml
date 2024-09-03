@@ -6,6 +6,28 @@ sources:
     database: fea24_6
     schema: raw_adventure_works
     tables:
+      - name: address
+        description: 'Street address information for customers, employees, and vendors.'
+        columns:
+          - name: addressid
+            description: 'Primary key for Address records.'
+          - name: addressline1
+            description: 'First street address line.'
+          - name: addressline2
+            description: 'Second street address line.'
+          - name: city
+            description: 'Name of the city.'
+          - name: stateprovinceid
+            description: 'Foreign Key to unique identification number for the state or province.'
+          - name: postalcode
+            description: 'Postal code for the street address.'
+          - name: spatiallocation
+            description: 'Latitude and longitude of this address.'
+          - name: rowguid
+            description: 'number uniquely identifying the record.'
+          - name: modifieddate
+            description: 'Date and time the record was last updated.'
+      
       - name: customer
         description: 'Table with customer information.'
         columns:
