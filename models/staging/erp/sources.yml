@@ -27,6 +27,16 @@ sources:
             description: 'number uniquely identifying the record.'
           - name: modifieddate
             description: 'Date and time the record was last updated.'
+
+      - name: countryregion
+        description: 'Table containing the ISO standard codes for countries and regions.'
+        columns:
+          - name: CountryRegionCode
+            description: Primary key for Country Region records.'
+          - name: Name
+            description: 'Country or region name.'
+          - name: modifieddate
+            description: 'Date and time the record was last updated.'
       
       - name: customer
         description: 'Table with customer information.'
