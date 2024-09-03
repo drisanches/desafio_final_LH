@@ -21,6 +21,8 @@ models:
           Primary type of person. Indicates whether the person is:
           Store contact (SC), Individual [retail] customer (IN), Sales person (SP),
           Employee [non-sales] (EM), Vendor contact (VC) or General contact (GC).
+        tests:
+          - not_null
 
       - name: full_name
         description: 'Full name of the customer.'
