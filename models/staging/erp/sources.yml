@@ -182,18 +182,18 @@ sources:
         columns:
           - name: stateprovinceid
             description: 'Primary key for StateProvince records.'
-          - name: stateprovincecode 
-            description: 'ISO standard state or province code.'
           - name: countryregioncode
             description: 'Foreign key to CountryRegion records.'
-          - name: isonlystateprovinceFlag
-            description: >
-              Flag to indicate if StateProvinceCode exists (0) or not (1),
-              using CountryRegionCode.
+          - name: territoryid 
+            description: 'Foreign key to the territory in which the state or province is located.'
+          - name: stateprovincecode 
+            description: 'ISO standard state or province code.'
           - name: name
             description: 'State or province description.'
-          - name: territoryid 
-            description: 'ID of the territory in which the state or province is located.'
+          - name: isonlystateprovinceflag
+            description: >
+              Flag to indicate if StateProvinceCode exists (false) or not (true),
+              using CountryRegionCode.
           - name: rowguid
             description: 'number uniquely identifying the record.'
           - name: modifieddate
