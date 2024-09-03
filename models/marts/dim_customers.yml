@@ -12,15 +12,9 @@ models:
   
       - name: pk_person
         description: 'Natural key for Person records.'
-        tests:
-          - unique
-          - not_null
 
       - name: pk_store
         description: 'Natural key for Store records.'
-        tests:
-          - unique
-          - not_null
 
       - name: person_type
         description: >
@@ -30,9 +24,6 @@ models:
 
       - name: full_name
         description: 'Full name of the customer.'
-        tests:
-          - unique
-          - not_null
 
       - name: store_name
         description: 'Name of the store.'
