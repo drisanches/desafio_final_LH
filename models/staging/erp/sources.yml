@@ -56,6 +56,34 @@ sources:
           - name: modifieddate
             description: 'Date and time the record was last updated.'
 
+      - name: salesorderdetail
+        description: 'Individual products associated with a specific sales order.'
+        columns:
+          - name: salesorderid
+            description: 'Foreign key for Sales Order records.'
+          - name: salesorderdetailid
+            description: 'Primary key. One incremental unique number per product sold.'
+          - name: carriertrackingnumber
+            description: 'Shipment tracking number supplied by the shipper.'
+          - name: orderqty
+            description: 'Quantity ordered per product.'
+          - name: productid
+            description: 'Foreign Key to the product sold to customer.'
+          - name: specialofferid
+            description: 'Foreign Key to promotional code.'
+          - name: unitprice
+            description: 'Selling price of a single product.'
+          - name: unitpricediscount
+            description: 'Discount amount.'
+          - name: linetotal
+            description: >
+              Subtotal per product.
+              Computed as UnitPrice * (1 - UnitPriceDiscount) * OrderQty.
+          - name: rowguid
+            description: 'number uniquely identifying the record.'
+          - name: modifieddate
+            description: 'Date and time the record was last updated.'
+
       - name: salesorderheader
         description: 'General sales order information.'
         columns:
