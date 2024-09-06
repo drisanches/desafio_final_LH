@@ -149,6 +149,16 @@ sources:
           - name: modifieddate
             description: 'Date and time the record was last updated.'
 
+      - name: salesorderheadersalesreason
+        description: 'Cross-reference table mapping sales orders to sales reason codes.'
+        columns:
+          - name: salesorderid
+            description: 'Foreign key for SalesOrder records.'
+          - name: salesreasonid
+            description: 'Foreign key for SalesReason records.'
+          - name: modifieddate
+            description: 'Date and time the record was last updated.'
+
       - name: salesreason
         description: 'Table of customer purchase reasons.'
         columns:
