@@ -1,31 +1,62 @@
 version: 2
 
 models:
-  - name: dim_addresses
-    description: 'Adventure Works addresses dimension.'
+  - name: fct_sales_orders
+    description: 'Adventure Works sales orders fact table.'
     columns:
-      - name: pk_address
-        description: 'Primary key for address records.'
+      - name: fk_sales_order
+        description: 'Foreign key for sales order records.'
         tests:
-          - unique
           - not_null
   
-      - name: city_name
-        description: 'Name of the city.'
+      - name: fk_product
+        description: 'Foreign key for product records.'
         tests:
           - not_null
 
-      - name: state_province_code
-        description: 'ISO standard state or province code.'
+      - name: fk_customer
+        description: 'Foreign key for customer records.'
         tests:
           - not_null
 
-      - name: state_province_name
-        description: 'State or province name.'
+      - name: fk_sales_person
+        description: 'Foreign key for sales person records.'
+
+      - name: fk_ship_address
+        description: 'Foreign key for address records.'
         tests:
           - not_null
 
-      - name: country_region_name
-        description: 'Country or region name.'
+      - name: dt_order
+        description: 'Date the sales order was created.'
         tests:
           - not_null
+
+      - name: quantity
+        description: 'Quantity ordered per product.'
+        tests:
+          - not_null
+      
+      - name: unit_price
+        description: 'Selling price of a single product.'
+        tests:
+          - not_null
+
+      - name: discount
+        description: 'Discount amount.'
+
+      - name: tax
+        description: 'Tax amount.'
+        tests:
+          - not_null
+      
+      - name: freight
+        description: 'Shipping cost.'
+
+      - name: order_status
+        description: 'Order current status.'
+        tests:
+          - not_null
+      
+      - name: reason_name
+        description: 'Sales reason description.'

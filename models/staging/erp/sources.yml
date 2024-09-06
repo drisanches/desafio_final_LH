@@ -75,10 +75,6 @@ sources:
             description: 'Selling price of a single product.'
           - name: unitpricediscount
             description: 'Discount amount.'
-          - name: linetotal
-            description: >
-              Subtotal per product.
-              Computed as UnitPrice * (1 - UnitPriceDiscount) * OrderQty.
           - name: rowguid
             description: 'number uniquely identifying the record.'
           - name: modifieddate

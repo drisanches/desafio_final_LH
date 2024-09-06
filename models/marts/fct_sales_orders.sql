@@ -32,8 +32,12 @@ with
             , details.discount
             , orders.tax
             , orders.freight
-            , reasons.reason_name
-            , reasons.reason_type
+            , orders.order_status
+            , case
+                when reasons.reason_name is not null then reasons.reason_name
+                when reasons.reason_name is null then 'Other'
+            end as reason_name
+            , orders.is_online_order
         from stg_sales_order_details as details
         left join stg_sales_orders as orders
             on details.fk_sales_order = orders.pk_sales_order

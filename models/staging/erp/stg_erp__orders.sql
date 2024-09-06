@@ -1,7 +1,7 @@
 with
     renamed as (
-        select *
-            , cast(salesorderid as int) as pk_sales_order
+        select
+            cast(salesorderid as int) as pk_sales_order
             , cast(customerid as int) as fk_customer
             , cast(salespersonid as int) as fk_sales_person
             , cast(shiptoaddressid as int) as fk_ship_address
