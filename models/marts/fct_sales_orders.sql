@@ -1,6 +1,19 @@
 with
     stg_sales_orders as (
-        select *
+        select
+            pk_sales_order
+            , fk_customer
+            , fk_sales_person
+            , fk_ship_address
+            , dt_order
+            , tax
+            , freight
+            , order_status
+            , case
+                when fk_credit_card is null then 'Others'
+                when fk_credit_card is not null then 'Credit Card'
+            end as payment_method
+            , is_online_order
         from {{ ref('stg_erp__orders') }}
     )
 
@@ -33,9 +46,10 @@ with
             , orders.tax
             , orders.freight
             , orders.order_status
+            , orders.payment_method
             , case
                 when reasons.reason_name is not null then reasons.reason_name
-                when reasons.reason_name is null then 'Other'
+                when reasons.reason_name is null then 'Not Informed'
             end as reason_name
             , orders.is_online_order
         from stg_sales_order_details as details

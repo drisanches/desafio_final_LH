@@ -5,6 +5,7 @@ with
             , cast(customerid as int) as fk_customer
             , cast(salespersonid as int) as fk_sales_person
             , cast(shiptoaddressid as int) as fk_ship_address
+            , cast(creditcardid as int) as fk_credit_card
             , cast(orderdate as date) as dt_order
             , cast(subtotal as numeric(18,2)) as subtotal
             , cast(taxamt as numeric(18,2)) as tax
@@ -29,7 +30,6 @@ with
             --, territoryid
             --, billtoaddressid
             --, shipmethodid
-            --, creditcardid
             --, currencyrateid
             --, comment
             --, rowguid
