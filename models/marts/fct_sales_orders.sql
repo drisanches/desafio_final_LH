@@ -61,5 +61,22 @@ with
             on orders_reasons.fk_sales_reason = reasons.pk_sales_reason
     )
 
+    , metrics as (
+        select
+            *
+            , quantity * unit_price as gross_sales
+            , quantity * (1 - discount) * unit_price as net_sales
+            , tax / count(*) over(partition by fk_sales_order) as prorated_tax
+            , freight / count(*) over(partition by fk_sales_order) as prorated_freight
+        from joined
+    )
+
+    , surrogate_key as (
+        select
+            
+            , *
+        from metrics
+    )
+
 select *
-from joined
+from surrogate_key
