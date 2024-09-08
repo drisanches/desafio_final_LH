@@ -14,9 +14,24 @@ with
         from {{ ref('stg_erp__order_details') }}
     )
 
+    -- Fixing duplicate orders with different sale reasons
     , stg_sales_orders_reasons as (
-        select *
+        select
+            fk_sales_order
+            , fk_sales_reason
+            , row_number() over (
+                partition by fk_sales_order
+                order by modified_date desc
+            ) as row_num
         from {{ ref('stg_erp__sales_orders_reasons') }}
+    )
+
+    , filtered_orders_reasons as (
+        select
+            fk_sales_order
+            , fk_sales_reason
+        from stg_sales_orders_reasons
+        where row_num = 1
     )
 
     , stg_sales_reasons as (
@@ -47,7 +62,7 @@ with
         from stg_sales_order_details as details
         left join stg_sales_orders as orders
             on details.fk_sales_order = orders.pk_sales_order
-        left join stg_sales_orders_reasons as orders_reasons
+        left join filtered_orders_reasons as orders_reasons
             on details.fk_sales_order = orders_reasons.fk_sales_order
         left join stg_sales_reasons as reasons
             on orders_reasons.fk_sales_reason = reasons.pk_sales_reason
@@ -56,10 +71,10 @@ with
     , metrics as (
         select
             *
-            , quantity * unit_price as gross_sales
-            , quantity * (1 - discount) * unit_price as net_sales
-            , tax / count(*) over(partition by fk_sales_order) as prorated_tax
-            , freight / count(*) over(partition by fk_sales_order) as prorated_freight
+            , cast(quantity * unit_price as numeric(18,2)) as gross_sales
+            , cast(quantity * (1 - discount) * unit_price as numeric(18,2)) as net_sales
+            , cast(tax / count(*) over(partition by fk_sales_order) as numeric(18,2)) as prorated_tax
+            , cast(freight / count(*) over(partition by fk_sales_order) as numeric(18,2)) as prorated_freight
         from joined
     )
 
@@ -73,5 +88,28 @@ with
         from metrics
     )
 
+    , reordered as (
+        select
+            sk_sales
+            , fk_sales_order
+            , fk_product
+            , fk_customer
+            , fk_sales_person
+            , fk_ship_address
+            , dt_order
+            , quantity
+            , unit_price
+            , discount
+            , prorated_tax
+            , prorated_freight
+            , gross_sales
+            , net_sales
+            , order_status
+            , payment_method
+            , reason_name
+            , is_online_order
+        from surrogate_key
+    )
+
 select *
-from surrogate_key
+from reordered

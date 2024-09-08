@@ -3,7 +3,7 @@ with
         select
             cast(salesorderid as int) as fk_sales_order
             , cast(salesreasonid as int) as fk_sales_reason
-            --, modifieddate
+            , cast(modifieddate as date) as modified_date
         from {{ source('erp', 'salesorderheadersalesreason') }}
     )
 

@@ -51,13 +51,27 @@ models:
       - name: discount
         description: 'Discount amount.'
 
-      - name: tax
+      - name: prorated_tax
         description: 'Tax amount.'
         tests:
           - not_null
       
-      - name: freight
+      - name: prorated_freight
         description: 'Shipping cost.'
+
+      - name: gross_sales
+        description: >
+          Gross sales per product and order.
+          Computed as quantity * unit_price.
+        tests:
+          - not_null
+
+      - name: net_sales
+        description: >
+          Net sales per product and order.
+          Computed as quantity * (1 - discount) * unit_price.
+        tests:
+          - not_null
 
       - name: order_status
         description: 'Order current status.'
