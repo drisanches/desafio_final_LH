@@ -4,6 +4,12 @@ models:
   - name: fct_sales_orders
     description: 'Adventure Works sales orders fact table.'
     columns:
+      - name: sk_sales
+        description: 'Surrogate key for sales orders fact table.'
+        tests:
+          - unique
+          - not_null
+        
       - name: fk_sales_order
         description: 'Foreign key for sales order records.'
         tests:

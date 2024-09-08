@@ -1,19 +1,11 @@
 with
     stg_sales_orders as (
         select
-            pk_sales_order
-            , fk_customer
-            , fk_sales_person
-            , fk_ship_address
-            , dt_order
-            , tax
-            , freight
-            , order_status
+           *
             , case
                 when fk_credit_card is null then 'Others'
                 when fk_credit_card is not null then 'Credit Card'
             end as payment_method
-            , is_online_order
         from {{ ref('stg_erp__orders') }}
     )
 
@@ -73,7 +65,10 @@ with
 
     , surrogate_key as (
         select
-            
+            {{ dbt_utils.generate_surrogate_key([
+                'fk_sales_order'
+                , 'fk_product'
+            ]) }} as sk_sales
             , *
         from metrics
     )
