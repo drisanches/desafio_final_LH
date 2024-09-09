@@ -1,0 +1,82 @@
+version: 2
+
+models:
+  - name: fct_sales_orders
+    description: 'Adventure Works sales orders fact table.'
+    columns:
+      - name: sk_sales
+        description: 'Surrogate key for sales orders fact table.'
+        tests:
+          - unique
+          - not_null
+        
+      - name: fk_sales_order
+        description: 'Foreign key for sales order records.'
+        tests:
+          - not_null
+  
+      - name: fk_product
+        description: 'Foreign key for product records.'
+        tests:
+          - not_null
+
+      - name: fk_customer
+        description: 'Foreign key for customer records.'
+        tests:
+          - not_null
+
+      - name: fk_sales_person
+        description: 'Foreign key for sales person records.'
+
+      - name: fk_ship_address
+        description: 'Foreign key for address records.'
+        tests:
+          - not_null
+
+      - name: dt_order
+        description: 'Date the sales order was created.'
+        tests:
+          - not_null
+
+      - name: quantity
+        description: 'Quantity ordered per product.'
+        tests:
+          - not_null
+      
+      - name: unit_price
+        description: 'Selling price of a single product.'
+        tests:
+          - not_null
+
+      - name: discount
+        description: 'Discount amount.'
+
+      - name: prorated_tax
+        description: 'Tax amount.'
+        tests:
+          - not_null
+      
+      - name: prorated_freight
+        description: 'Shipping cost.'
+
+      - name: gross_sales
+        description: >
+          Gross sales per product and order.
+          Computed as quantity * unit_price.
+        tests:
+          - not_null
+
+      - name: net_sales
+        description: >
+          Net sales per product and order.
+          Computed as quantity * (1 - discount) * unit_price.
+        tests:
+          - not_null
+
+      - name: order_status
+        description: 'Order current status.'
+        tests:
+          - not_null
+      
+      - name: reason_name
+        description: 'Sales reason description.'

@@ -1,8 +1,8 @@
 version: 2
 
 models:
-  - name: dim_addresses
-    description: 'Adventure Works addresses dimension.'
+  - name: dim_regions
+    description: 'Adventure Works regions dimension.'
     columns:
       - name: pk_address
         description: 'Primary key for address records.'
