@@ -14,6 +14,11 @@ with
         from {{ ref('stg_erp__order_details') }}
     )
 
+    , stg_sales_reasons as (
+        select *
+        from {{ ref('stg_erp__sales_reasons') }}
+    )
+
     -- Fixing duplicate orders with different sale reasons
     , stg_sales_orders_reasons as (
         select
@@ -32,11 +37,6 @@ with
             , fk_sales_reason
         from stg_sales_orders_reasons
         where row_num = 1
-    )
-
-    , stg_sales_reasons as (
-        select *
-        from {{ ref('stg_erp__sales_reasons') }}
     )
 
     , joined as (
