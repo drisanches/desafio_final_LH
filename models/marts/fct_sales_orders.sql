@@ -1,5 +1,20 @@
 with
-    stg_sales_orders as (
+    dim_customers as (
+        select *
+        from {{ ref('dim_customers') }}
+    )
+
+    , dim_products as (
+        select *
+        from {{ ref('dim_products') }}
+    )
+
+    , dim_regions as (
+        select *
+        from {{ ref('dim_regions') }}
+    )
+    
+    , stg_sales_orders as (
         select
            *
             , case
