@@ -1,0 +1,16 @@
+version: 2
+
+models:
+  - name: dim_sales_reasons
+    description: 'Adventure Works regions dimension.'
+    columns:
+      - name: fk_sales_order
+        description: 'Foreign key for sales order records.'
+        tests:
+          - unique
+          - not_null
+      
+      - name: reason_name
+        description: 'Sales reason description.'
+        tests:
+          - not_null
