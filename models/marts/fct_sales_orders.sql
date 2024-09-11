@@ -13,6 +13,11 @@ with
         select *
         from {{ ref('dim_regions') }}
     )
+
+    , dim_sales_reasons as (
+        select *
+        from {{ ref('dim_sales_reasons') }}
+    )
     
     , stg_sales_orders as (
         select
@@ -27,31 +32,6 @@ with
     , stg_sales_order_details as (
         select *
         from {{ ref('stg_erp__order_details') }}
-    )
-
-    , stg_sales_reasons as (
-        select *
-        from {{ ref('stg_erp__sales_reasons') }}
-    )
-
-    -- Fixing duplicate orders with different sale reasons
-    , stg_sales_orders_reasons as (
-        select
-            fk_sales_order
-            , fk_sales_reason
-            , row_number() over (
-                partition by fk_sales_order
-                order by modified_date desc
-            ) as row_num
-        from {{ ref('stg_erp__sales_orders_reasons') }}
-    )
-
-    , filtered_orders_reasons as (
-        select
-            fk_sales_order
-            , fk_sales_reason
-        from stg_sales_orders_reasons
-        where row_num = 1
     )
 
     , joined as (
@@ -77,10 +57,8 @@ with
         from stg_sales_order_details as details
         left join stg_sales_orders as orders
             on details.fk_sales_order = orders.pk_sales_order
-        left join filtered_orders_reasons as orders_reasons
-            on details.fk_sales_order = orders_reasons.fk_sales_order
-        left join stg_sales_reasons as reasons
-            on orders_reasons.fk_sales_reason = reasons.pk_sales_reason
+        left join dim_sales_reasons as reasons
+            on details.fk_sales_order = reasons.fk_sales_order
     )
 
     , metrics as (
