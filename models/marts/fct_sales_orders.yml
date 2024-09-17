@@ -80,3 +80,9 @@ models:
       
       - name: reason_name
         description: 'Sales reason description.'
+
+      - name: is_online_order
+        description: >
+          Flag to indicate if the order was placed online 
+          by customer (true) or placed by sales person (false).
+

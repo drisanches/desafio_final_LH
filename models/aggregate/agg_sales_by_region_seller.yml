@@ -1,0 +1,43 @@
+version: 2
+
+models:
+  - name: agg_sales_by_region_and_sales_person
+    description: 'Aggregated sales table by region and seller.'
+    columns:
+      - name: country
+        description: 'Country or region name.'
+        tests:
+          - not_null
+
+      - name: state
+        description: 'State or Province name.'
+        tests:
+          - not_null
+
+      - name: city
+        description: 'City name.'
+        tests:
+          - not_null
+
+      - name: seller_name
+        description: 'Seller name.'
+
+      - name: total_orders
+        description: 'Total quantity of orders.'
+        tests:
+          - not_null
+
+      - name: total_gross_sales
+        description: 'Total gross sales value.'
+        tests:
+          - not_null
+
+      - name: total_net_sales
+        description: 'Total net sales value.'
+        tests:
+          - not_null
+
+      - name: total_quantity
+        description: 'Total quantity of products sold.'
+        tests:
+          - not_null

@@ -11,7 +11,7 @@ with
             , concat(first_name,
                 coalesce(concat(' ', trim(middle_name)), ''),
                 ' ',
-                last_name) as customer_name
+                last_name) as person_name
         from {{ ref('stg_erp__persons') }}
     )
 
@@ -25,7 +25,7 @@ with
             customers.pk_customer
             , persons.pk_person
             , stores.pk_store
-            , persons.customer_name
+            , persons.person_name
             , stores.store_name
             , case
                 when persons.person_type is not null then persons.person_type

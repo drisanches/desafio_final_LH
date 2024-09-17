@@ -37,6 +37,8 @@ clean-targets:         # directories to be removed by `dbt clean`
 
 models:
   dbt_adventure_works:
+    aggregate:
+      +materialized: view
     marts:
       +materialized: table
     staging:
