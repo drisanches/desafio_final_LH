@@ -1,6 +1,6 @@
 # Projeto Adventure Works - Modelagem Dimensional e Previsão de Demanda
 
-Este projeto visa implementar uma infraestrutura moderna de dados para a Adventure Works, uma indústria de bicicletas em expansão. O objetivo principal é analisar as vendas e prever a demanda de produtos para os próximos 3 meses, com o suporte de um data warehouse e visualizações avançadas.
+Este projeto visa implementar uma infraestrutura moderna de dados para a Adventure Works, uma indústria de bicicletas em expansão. O objetivo principal é analisar as vendas e prever a demanda de produtos para os próximos 3 meses, com o suporte de um data warehouse e visualizações avançadas. Este projeto é o desafio final do Programa Lighthouse conduzido pela Indicium.
 
 ## Sumário
 
