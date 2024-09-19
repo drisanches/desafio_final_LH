@@ -27,7 +27,7 @@ Este projeto busca transformar os dados de vendas da Adventure Works em informa�
 - **Data Warehouse**: Scripts e configuração para a modelagem dimensional no Snowflake.
 - **Transformação de Dados**: Modelos dbt para as camadas de staging, marts e aggregates.
 - **Visualização**: Relatório detalhado, diagrama conceitual e dashboards desenvolvidos no Power BI (consultar pasta `docs`).
-- **Previsão**: Scripts Python para análise preditiva e avaliação de modelos (consultar pasta `docs`).
+- **Previsão**: Scripts Python para análise preditiva e avaliação de modelos (consultar em [Adventure Works Sales Forecasting](https://colab.research.google.com/drive/16x9ijxDHhw7LuJHbUxOjHOaKuKcWPjse?usp=sharing)).
 
 ## Instalação e Configuração
 
